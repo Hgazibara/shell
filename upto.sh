@@ -11,16 +11,16 @@
 # specific folder. For example, if you're located in directory
 # '/home/user/data/some/deep/nesting', write 'upto user' to get to the folder
 # '/home/user'.
-# The script does not work for partial matches, so you can't write 'upto us'
-# in the previous example as it would put you in the top-level parent directory.
+# The script accepts any substring, so you can write 'upto us' and get the same
+# result as in the previous example.
 
 function upto() {
     pattern=$1
-    ! is_root && ! $(endswith $PWD "$pattern") && cd .. && upto $pattern
+    ! is_root && ! $(contains ${PWD##*/} "$pattern") && cd .. && upto $pattern
 }
 
-function endswith() {
-    [[ "$1" = *"$2" ]]
+function contains() {
+    [[ "$1" = *"$2"* ]]
 }
 
 function is_root() {
