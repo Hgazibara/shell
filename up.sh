@@ -14,5 +14,5 @@ function up() {
 }
 
 function is_root() {
-    [[ $(pwd) = "/" ]]
+    [[ $PWD = "/" ]]
 }

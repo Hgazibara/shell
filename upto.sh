@@ -16,7 +16,7 @@
 
 function upto() {
     pattern=$1
-    ! is_root && ! $(endswith $(pwd) "$pattern") && cd .. && upto $pattern
+    ! is_root && ! $(endswith $PWD "$pattern") && cd .. && upto $pattern
 }
 
 function endswith() {
@@ -24,5 +24,5 @@ function endswith() {
 }
 
 function is_root() {
-    [[ $(pwd) = "/" ]]
+    [[ $PWD = "/" ]]
 }
