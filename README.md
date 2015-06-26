@@ -1,11 +1,16 @@
 # About
 
-Some simple utility bash scripts to help in everyday work.
+Simple utility bash functions and aliases to help in everyday work.
 
-## up.sh
+# Setup
 
-Allows users to go up n levels in directory structure instead of repeating command `cd ..` multiple times. Instead, write `up n`, where n is a number of times you want to go up.
+All functions and aliases are setup by a loading script `load.sh`. A variable `SHELL_UTILS` needs to be exported and must point to a location containing all files. Set `SHELL_UTILS` to the location of the repository and source `load.sh` in your bash configuration file.
 
-## upto.sh
+    SHELL_UTILS="/path/to/the/repo"
+    . "$SHELL_UTILS"/load.sh
 
-Makes it possible to go up in the directory structure until directory name matches the specified pattern (substring). For example, if you're in a folder `/home/user/some/deep/nesting/levels` and you want to get to the folder `/home/user/some`, writing `upto some` or, for example, `upto so` would lead to the wanted directory.
+The contents of the folders are included in the following order:
+
+ 1. utils
+ 2. functions
+ 3. aliases
